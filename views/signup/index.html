@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="stylesheet" href="index.css">
+  <title>Catalogify</title>
+
+</head>  
+  <body>
+    <svg version="1.1" xmlns="http://www.w3.org/2000/svg"
+      xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" width="100%" height="100%" viewBox="0 0 1600 900" preserveAspectRatio="xMidYMax slice">
+      <defs>
+        <linearGradient id="bg">
+          <stop offset="0%" style="stop-color:rgb(252, 167, 255)"></stop>
+          <stop offset="50%" style="stop-color:hsl(303, 100%, 85%)"></stop>
+          <stop offset="100%" style="stop-color:hsl(308, 100%, 88%)"></stop>
+        </linearGradient>
+        <path id="wave" fill="url(#bg)" d="M-363.852,502.589c0,0,236.988-41.997,505.475,0
+    s371.981,38.998,575.971,0s293.985-39.278,505.474,5.859s493.475,48.368,716.963-4.995v560.106H-363.852V502.589z" />
+      </defs>
+      <g>
+        <use xlink:href='#wave' opacity=".3">
+          <animateTransform
+            attributeName="transform"
+            attributeType="XML"
+            type="translate"
+            dur="10s"
+            calcMode="spline"
+            values="270 230; -334 180; 270 230"
+            keyTimes="0; .5; 1"
+            keySplines="0.42, 0, 0.58, 1.0;0.42, 0, 0.58, 1.0"
+            repeatCount="indefinite" />
+        </use>
+        <use xlink:href='#wave' opacity=".6">
+          <animateTransform
+            attributeName="transform"
+            attributeType="XML"
+            type="translate"
+            dur="8s"
+            calcMode="spline"
+            values="-270 230;243 220;-270 230"
+            keyTimes="0; .6; 1"
+            keySplines="0.42, 0, 0.58, 1.0;0.42, 0, 0.58, 1.0"
+            repeatCount="indefinite" />
+        </use>
+        <use xlink:href='#wave' opacty=".9">
+          <animateTransform
+            attributeName="transform"
+            attributeType="XML"
+            type="translate"
+            dur="6s"
+            calcMode="spline"
+            values="0 230;-140 200;0 230"
+            keyTimes="0; .4; 1"
+            keySplines="0.42, 0, 0.58, 1.0;0.42, 0, 0.58, 1.0"
+            repeatCount="indefinite" />
+        </use>
+      </g>
+    </svg>
+
+<div id="main" class="pt-16 h-screen flex max-w-7xl mx-auto justify-center items-center px-4 gap-16">
+  <div class="hidden lg:flex w-2/4 justify-center items-center">
+      
+  </div>
+  <form id="form" class="bg-zinc-500 absolute opacity-90 flex flex-col gap-4 p-4 rounded-lg text-lg shadow-lg w-full md:w-9/12 lg:w-2/4">
+      <div class="flex flex-col gap-2">
+          <label for="name-input" class="font-bold text-zinc-800 dark:text-zinc-50">
+              Nombre y Apellido<span class="text-red-500">*</span>
+          </label>
+          <input type="text" 
+          name="name-input" 
+          id="name-input" 
+          autocomplete="off" 
+          placeholder="ejemplo: Maria Antonieta" 
+          class="rounded-lg p-2 bg-zinc-100 focus:outline-cyan-700 dark:bg-slate-300">
+          <p class="text-xs text-zinc-800 dark:text-zinc-50">los nombres deben comenzar con letra mayúscula</p>
+      </div>
+      <div class="flex flex-col gap-2">
+          <label for="email-input" class="font-bold text-zinc-800 dark:text-zinc-50">
+              Correo <span class="text-red-500">*</span>
+          </label>
+          <input type="email" 
+          name="email-input" 
+          id="email-input" 
+          autocomplete="off" 
+          placeholder="holasoyuncorreo@correo.com" 
+          class="rounded-lg p-2 bg-zinc-100 focus:outline-cyan-700 dark:bg-slate-300">
+          <p class="text-xs text-zinc-800 dark:text-zinc-50">se necesita un correo</p>
+      </div>
+      <div class="flex flex-col gap-2">
+          <label for="password-input" class="font-bold text-zinc-800 dark:text-zinc-50">
+              Contraseña <span class="text-red-500">*</span>
+          </label>
+          <input type="password" 
+          name="password" 
+          id="password-input" 
+          autocomplete="off" 
+          class="rounded-lg p-2 bg-zinc-100 focus:outline-cyan-700 dark:bg-slate-300">
+          <p class="text-xs text-zinc-800 dark:text-zinc-50">
+              la contraseña debe tener al menos un número <br>
+              la contraseña debe tener al menos 8 caracteres 
+              
+          </p>
+      </div>     
+      <div class="flex flex-col gap-2">
+          <label for="confirm-password-input" class="font-bold text-zinc-800 dark:text-zinc-50">
+              Confirmar contraseña <span class="text-red-500">*</span>
+          </label>
+          <input type="password" 
+          name="confirm-password" 
+          id="confirm-password-input" 
+          autocomplete="off" 
+          class="rounded-lg p-2 bg-zinc-100 focus:outline-cyan-700 dark:bg-slate-300">
+          <p class="text-xs text-zinc-800 dark:text-zinc-50">
+              La contraseña debe coincidir
+          </p>
+      </div>
+      <span id="loader" class="loader mx-auto hidden"></span>
+
+      <button id="form-btn" disabled class="bg-zinc-700 transition ease-in-out delay-150 bg-blue-500 hover:-translate-y-1 hover:scale-102 hover:bg-indigo-500 duration-300 hover:bg-zinc-900 text-zinc-50 rounded-md duration-100 font-semibold text-center py-1 px-2 font-bold py-2 px-4 rounded-lg font-bold text-zinc-50 hover:bg-cyan-800 text-center transition ease-in-out disabled:opacity-50 disabled:cursor-not-allowed">
+          Registrar
+      </button>      
+  </form>
+  
+</div>
+      <script src="index.js"></script>
+</body>
+</html>
